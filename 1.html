@@ -11,12 +11,16 @@
             const sidebar = document.getElementById("sidebar");
             const mainContent = document.getElementById("main-content");
             const sidebarItems = document.querySelectorAll("#sidebar li");
+            const sidebarTitle = document.getElementById("sidebar-title");
 
             sidebar.classList.toggle("w-16");
             sidebar.classList.toggle("w-64");
 
             mainContent.classList.toggle("ml-16");
             mainContent.classList.toggle("ml-64");
+
+            // Hide sidebar title when collapsed
+            sidebarTitle.classList.toggle("hidden");
 
             // Adjust menu items for collapsed mode
             sidebarItems.forEach(item => {
@@ -32,7 +36,12 @@
     <!-- Sidebar -->
     <div id="sidebar"
         class="w-64 bg-gray-100 h-screen fixed top-0 left-0 shadow-lg pt-16 transition-all duration-300">
-        <h2 class="text-orange-500 text-lg font-bold px-6 mb-4">HUMAN RESOURCE 2</h2>
+        
+        <!-- Sidebar Title -->
+        <div id="sidebar-title" class="text-orange-500 text-lg font-bold px-6 mb-4">
+            HUMAN RESOURCE 2
+        </div>
+
         <ul class="space-y-2">
             <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
                 <i class="fas fa-home"></i>
