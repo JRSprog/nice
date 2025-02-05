@@ -10,15 +10,18 @@
         function toggleSidebar() {
             const sidebar = document.getElementById("sidebar");
             const mainContent = document.getElementById("main-content");
-            const sidebarText = document.querySelectorAll("#sidebar span");
+            const sidebarItems = document.querySelectorAll("#sidebar li");
 
             sidebar.classList.toggle("w-16");
-            sidebar.classList.toggle("overflow-hidden");
-            mainContent.classList.toggle("ml-16");
+            sidebar.classList.toggle("w-64");
 
-            // Hide text when sidebar is collapsed
-            sidebarText.forEach(span => {
-                span.classList.toggle("hidden");
+            mainContent.classList.toggle("ml-16");
+            mainContent.classList.toggle("ml-64");
+
+            // Adjust menu items for collapsed mode
+            sidebarItems.forEach(item => {
+                item.classList.toggle("justify-center"); // Center items
+                item.querySelector("span").classList.toggle("hidden"); // Hide text
             });
         }
     </script>
@@ -77,4 +80,5 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
 
-</html>
+        </html>
+        
