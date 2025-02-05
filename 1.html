@@ -1,121 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: Arial, sans-serif;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-            background-color: aliceblue;
-        }
-        .header {
-            width: 100%;
-            background: #fff;
-            padding: 20px 30px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 0 5px rgba(0,0,0,0.2);
-            position: fixed;
-            top: 0;
-            left: 0;
-            z-index: 1000;
-        }
-        .sidebar {
-            width: 250px;
-            background: #f8f9fa;
-            padding: 20px;
-            height: 100vh;
-            position: fixed;
-            top: 0;
-            left: 0;
-            transition: 0.3s;
-            padding-top: 70px;
-            overflow: hidden;
-            box-shadow: 0 8px 4px 0 rgba(0,0,0,0.2) ;
-        }
-        .sidebar.collapsed {
-            width: 60px;
-        }
-        .sidebar h2 {
-            color: #f39c12;
-            font-size: 18px;
-            margin-bottom: 20px;
-            transition: 0.3s;
-        }
-        .sidebar.collapsed h2, .sidebar.collapsed ul li span {
-            display: none;
-        }
-        .sidebar ul {
-            list-style: none;
-            padding: 0;
-        }
-        .sidebar ul li {
-            padding: 10px;
-            display: flex;
-            align-items: center;
-        }
-        .sidebar ul li i {
-            margin-right: 10px;
-        }
-        .sidebar li:hover {
-            background-color: rgba(0,0,0,0.1);
-            width: 105%;
-        }
-        .main-content {
-            margin-left: 250px;
-            padding: 80px 20px 20px;
-            width: 100%;
-            transition: 0.3s;
-        }
-        .main-content.collapsed {
-            margin-left: 60px;
-        }
-        .toggle-btn {
-            cursor: pointer;
-        }
-    </style>
-</head>
-<body>
-    <div class="header">
-        <div class="toggle-btn" onclick="toggleSidebar()">
-            <i class="fas fa-bars"></i>
-        </div>
-        <div class="profile">
-            <i class="fas fa-bell"></i>
-            <i class="fas fa-user-circle"></i>
-        </div>
-    </div>
-    <div class="sidebar" id="sidebar">
-        <h2>HUMAN RESOURCE 2</h2>
-        <ul>
-            <li><i class="fas fa-home"></i> <span>Dashboard</span></li>
-            <li><i class="fas fa-chart-bar"></i> <span>Analytics</span></li>
-            <li><i class="fas fa-project-diagram"></i> <span>Projects</span></li>
-            <li><i class="fas fa-tasks"></i> <span>Tasks</span></li>
-            <li><i class="fas fa-cog"></i> <span>Settings</span></li>
-        </ul>
-    </div>
-    <div class="main-content" id="main-content">
-        <h1>Welcome to Dashboard</h1>
-        <p>This is your main content area. The sidebar can be collapsed using the menu button in the navbar.</p>
-    </div>
+    <title>Dashboard - Tailwind</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <script>
         function toggleSidebar() {
-            let sidebar = document.getElementById("sidebar");
-            let mainContent = document.getElementById("main-content");
-            sidebar.classList.toggle("collapsed");
-            mainContent.classList.toggle("collapsed");
+            document.getElementById("sidebar").classList.toggle("w-16");
+            document.getElementById("sidebar").classList.toggle("overflow-hidden");
+            document.getElementById("main-content").classList.toggle("ml-16");
         }
     </script>
+</head>
+
+<body class="bg-blue-50 flex">
+
+    <!-- Sidebar -->
+    <div id="sidebar"
+        class="w-64 bg-gray-100 h-screen fixed top-0 left-0 shadow-lg pt-16 transition-all duration-300">
+        <h2 class="text-orange-500 text-lg font-bold px-6 mb-4">HUMAN RESOURCE 2</h2>
+        <ul class="space-y-2">
+            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
+                <i class="fas fa-home"></i>
+                <span class="text-sm font-medium">Dashboard</span>
+            </li>
+            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
+                <i class="fas fa-chart-bar"></i>
+                <span class="text-sm font-medium">Analytics</span>
+            </li>
+            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
+                <i class="fas fa-project-diagram"></i>
+                <span class="text-sm font-medium">Projects</span>
+            </li>
+            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
+                <i class="fas fa-tasks"></i>
+                <span class="text-sm font-medium">Tasks</span>
+            </li>
+            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
+                <i class="fas fa-cog"></i>
+                <span class="text-sm font-medium">Settings</span>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div id="main-content" class="ml-64 flex-1 p-6 transition-all duration-300">
+        <!-- Header -->
+        <div class="fixed top-0 left-0 w-full bg-white shadow-md px-6 py-4 flex justify-between items-center z-50">
+            <button onclick="toggleSidebar()" class="text-lg">
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="flex items-center space-x-4">
+                <i class="fas fa-bell"></i>
+                <i class="fas fa-user-circle text-xl"></i>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="pt-20">
+            <h1 class="text-2xl font-bold">Welcome to Dashboard</h1>
+            <p class="mt-2 text-gray-600">This is your main content area. The sidebar can be collapsed using the menu button in the navbar.</p>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
 </body>
-</html>
+
+                    </html>
