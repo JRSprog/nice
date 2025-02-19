@@ -1,0 +1,244 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  height: 100%;
+  background-color: whitesmoke;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* Header */
+.header {
+  background-color: white;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  top: 0;
+  position: sticky;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 95%;
+  margin-top: 15px;
+  margin-left: 20px;
+  z-index: 2;
+}
+
+/* Sidebar Toggle Button */
+.sidebar-toggle {
+  font-size: 18px;
+  color: #7c7c7c;
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  background: none;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+.sidebar-toggle strong {
+  margin-top: 3px;
+}
+
+.sidebar-toggle i {
+  margin-right: 10px;
+}
+
+/* Left Side Photo and Dropdown */
+.left-side {
+  display: flex;
+  align-items: center;
+}
+
+.photo {
+  width: 40px;
+  height: 40px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+/* Dropdown Styling */
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  overflow: hidden;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  z-index: 1;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+  margin-left: -50px;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.photo:hover + .dropdown-content,
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: white;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 30px;
+  color: black;
+  z-index: 3;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 10px;
+}
+
+/* Sidebar Items */
+.sidebar-nav li {
+  padding: 10px;
+}
+
+.sidebar-nav li a {
+  display: flex;
+  align-items: center;
+  color: black;
+  padding: 10px 20px;
+}
+
+.sidebar-nav li a:hover {
+  background-color: #34495e;
+  color: white;
+  border-radius: 10px;
+}
+
+.sidebar-nav li a i {
+  margin-right: 10px;
+}
+
+.sidebar.open {
+  width: 350px;
+}
+
+/* Logo */
+.logo {
+  border-bottom: solid gray 1px;
+}
+.sidebar .logo {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.sidebar .logo img {
+  width: 100px;
+}
+
+.sidebar .logo p {
+  color: gray;
+}
+
+.content {
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.content h1 {
+  font-size: 40px;
+  margin-left: 15px;
+}
+
+/* Overlay Effect */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  z-index: 2;
+  display: none;
+}
+
+/* Transition for Sidebar */
+.sidebar.open {
+  width: 300px;
+}
+
+/* Mobile Responsiveness */
+@media screen and (max-width: 768px) {
+  .header {
+      padding: 10px;
+      justify-content: space-between; /* Ensure the burger button and image stay on the left */
+      width: 88%;
+  }
+
+  .sidebar {
+      width: 0;
+      height: 100%;
+  }
+
+  .sidebar.open {
+      width: 250px;
+  }
+
+  .content h1 {
+      font-size: 30px;
+  }
+
+  .sidebar-nav li {
+      padding: 15px;
+  }
+
+  .sidebar-toggle {
+      font-size: 22px;
+      padding: 12px 25px;
+  }
+
+  .left-side {
+      display: flex; /* Ensuring photo and dropdown remain aligned */
+      justify-content: flex-start; /* Keep them aligned to the left */
+      margin-top: 0;
+  }
+
+  .photo {
+      width: 50px;
+      height: 50px;
+      margin: 0;
+  }
+
+  .dropdown-content {
+      left: 50%;
+      transform: translateX(-50%);
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .sidebar-nav li a {
+      font-size: 14px;
+      padding: 8px 15px;
+  }
+}
