@@ -1,93 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Tailwind</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        function toggleSidebar() {
-            const sidebar = document.getElementById("sidebar");
-            const mainContent = document.getElementById("main-content");
-            const sidebarItems = document.querySelectorAll("#sidebar li");
-            const sidebarTitle = document.getElementById("sidebar-title");
-
-            sidebar.classList.toggle("w-16");
-            sidebar.classList.toggle("w-64");
-
-            mainContent.classList.toggle("ml-16");
-            mainContent.classList.toggle("ml-64");
-
-            // Hide sidebar title when collapsed
-            sidebarTitle.classList.toggle("hidden");
-
-            // Adjust menu items for collapsed mode
-            sidebarItems.forEach(item => {
-                item.classList.toggle("justify-center"); // Center items
-                item.querySelector("span").classList.toggle("hidden"); // Hide text
-            });
-        }
-    </script>
+    <title>Student Information</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="shortcut icon" href="../images/blogo.png" type="x-icon">
 </head>
+<body>
+    <!-- Overlay for Sidebar -->
+    <div class="overlay" id="overlay"></div>
 
-<body class="bg-blue-50 flex">
+    <header class="header">
+        <button id="sidebar-toggle" class="sidebar-toggle">
+            &#9776; &nbsp;&nbsp; <strong>Dashboard</strong>
+        </button>
 
-    <!-- Sidebar -->
-    <div id="sidebar"
-        class="w-64 bg-gray-100 h-screen fixed top-0 left-0 shadow-lg pt-16 transition-all duration-300">
-        
-        <!-- Sidebar Title -->
-        <div id="sidebar-title" class="text-orange-500 text-lg font-bold px-6 mb-4">
-            HUMAN RESOURCE 2
+        <!-- Left Side Photo with Dropdown -->
+        <div class="left-side">
+            <div class="dropdown">
+                <img src="../images/blogo.png" alt="Photo" class="photo" id="photo">
+                <div class="dropdown-content">
+                  <a href="#"><i class="fa-solid fa-user"></i> Profile</a>
+                  <a href="#"><i class="fa-solid fa-gear"></i> Settings</a>
+                  <a href="login.html"><i class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                </div>
+            </div>
         </div>
+    </header>
 
-        <ul class="space-y-2">
-            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
-                <i class="fas fa-home"></i>
-                <span class="text-sm font-medium">Dashboard</span>
-            </li>
-            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
-                <i class="fas fa-chart-bar"></i>
-                <span class="text-sm font-medium">Analytics</span>
-            </li>
-            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
-                <i class="fas fa-project-diagram"></i>
-                <span class="text-sm font-medium">Projects</span>
-            </li>
-            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
-                <i class="fas fa-tasks"></i>
-                <span class="text-sm font-medium">Tasks</span>
-            </li>
-            <li class="px-6 py-2 flex items-center space-x-2 hover:bg-gray-200 cursor-pointer">
-                <i class="fas fa-cog"></i>
-                <span class="text-sm font-medium">Settings</span>
-            </li>
+    <!-- Sidebar (Overlay) -->
+    <div class="sidebar" id="sidebar">
+        <div class="logo">
+            <img src="../images/blogo.png" alt="Logo">
+            <p>09090909</p>
+        </div>
+        <ul class="sidebar-nav">
+          <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+          <li><a href="strecord.php"><i class="fa-solid fa-clipboard-list"></i> Student Information</a></li>
+          <li><a href="onfees.php"><i class="fa-solid fa-clipboard"></i> Ongoing fees</a></li>
+          <li><a href="studentbalance.php"><i class="fa-solid fa-clipboard"></i> Students Balance</a></li>
+          <li><a href="approval.php"><i class="fa-solid fa-credit-card"></i> Online Approval Payment</a></li>
+          <li><a href="payrecord.php"><i class="fa-solid fa-clipboard"></i> Payment Record</a></li>
         </ul>
     </div>
 
-    <!-- Main Content -->
-    <div id="main-content" class="ml-64 flex-1 p-6 transition-all duration-300">
-        <!-- Header -->
-        <div class="fixed top-0 left-0 w-full bg-white shadow-md px-6 py-4 flex justify-between items-center z-50">
-            <button onclick="toggleSidebar()" class="text-lg">
-                <i class="fas fa-bars"></i>
-            </button>
-            <div class="flex items-center space-x-4">
-                <i class="fas fa-bell"></i>
-                <i class="fas fa-user-circle text-xl"></i>
-            </div>
-        </div>
-
-        <!-- Content -->
-        <div class="pt-20">
-            <h1 class="text-2xl font-bold">Welcome to Dashboard</h1>
-            <p class="mt-2 text-gray-600">This is your main content area. The sidebar can be collapsed using the menu button in the navbar.</p>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script>
+    <section class="content">
+    </section>
+<script src="../js/script.js"></script>
 </body>
-
-        </html>
-        
+</html>
